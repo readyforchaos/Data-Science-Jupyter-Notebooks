@@ -34,3 +34,13 @@ A set of algorithms and Visualizations in Jupyter Notebook with datasets include
           administrator : False
              netrc file : None
            offline mode : False
+
+
+## Presentation mode
+
+* Open a notebook
+* Select Cell Tools on the left side bar
+* Select the Slide Type
+* Activate another cell
+* Repeat 3 and 4
+* $ jupyter nbconvert foo.ipynb --to slides --post serve
