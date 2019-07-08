@@ -1,0 +1,71 @@
+0	Account Length	q
+1	Int'l Plan	q
+2	VMail Plan	q
+3	VMail Message	q
+4	Day Mins	q
+5	Day Calls	q
+6	Day Charge	q
+7	Eve Mins	q
+8	Eve Calls	q
+9	Eve Charge	q
+10	Night Mins	q
+11	Night Calls	q
+12	Night Charge	q
+13	Intl Mins	q
+14	Intl Calls	q
+15	Intl Charge	q
+16	CustServ Calls	q
+17	AK	q
+18	AL	q
+19	AR	q
+20	AZ	q
+21	CA	q
+22	CO	q
+23	CT	q
+24	DC	q
+25	DE	q
+26	FL	q
+27	GA	q
+28	HI	q
+29	IA	q
+30	ID	q
+31	IL	q
+32	IN	q
+33	KS	q
+34	KY	q
+35	LA	q
+36	MA	q
+37	MD	q
+38	ME	q
+39	MI	q
+40	MN	q
+41	MO	q
+42	MS	q
+43	MT	q
+44	NC	q
+45	ND	q
+46	NE	q
+47	NH	q
+48	NJ	q
+49	NM	q
+50	NV	q
+51	NY	q
+52	OH	q
+53	OK	q
+54	OR	q
+55	PA	q
+56	RI	q
+57	SC	q
+58	SD	q
+59	TN	q
+60	TX	q
+61	UT	q
+62	VA	q
+63	VT	q
+64	WA	q
+65	WI	q
+66	WV	q
+67	WY	q
+68	408	q
+69	415	q
+70	510	q
