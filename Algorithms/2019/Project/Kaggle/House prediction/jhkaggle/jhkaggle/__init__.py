@@ -1,5 +1,6 @@
 import json
 import os
+import csv
 from pathlib import Path
 
 jhkaggle_config = {}
@@ -8,6 +9,7 @@ def load_config(profile,filename = None):
   global jhkaggle_config
   if not filename:
     home = str(Path.home())
+    #print("THIS IS PATH JOIN: ",os.path.join(home,".jhkaggleConfig.json"))
     filename = os.path.join(home,".jhkaggleConfig.json")
     if not os.path.isfile(filename):
       raise Exception(f"If no 'filename' paramater specifed, assume '.jhkaggleConfig.json' exists at HOME: {home}")

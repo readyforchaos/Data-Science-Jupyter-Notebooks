@@ -12,8 +12,11 @@ from sklearn.model_selection import KFold,StratifiedKFold
 
 def perform_join(profile_name):
     path = jhkaggle.jhkaggle_config['PATH']
+    print("PATH: ",path)
     fit_type = jhkaggle.jhkaggle_config['FIT_TYPE']
+    print("FIT TYPE: ",fit_type)
     target_name = jhkaggle.jhkaggle_config['TARGET_NAME']
+    print("TARGET NAME: ",target_name)
 
     df_train_joined = None
     df_test_joined = None
@@ -22,12 +25,17 @@ def perform_join(profile_name):
     if profile_name not in jhkaggle.jhkaggle_config['JOIN_PROFILES']:
         raise Error(f"Undefined join profile: {profile_name}")
     profile = jhkaggle.jhkaggle_config['JOIN_PROFILES'][profile_name]
+    print("PROFILE: ",profile)
     folds = jhkaggle.jhkaggle_config['FOLDS']
+    print("FOLDS: ", folds)
     seed = jhkaggle.jhkaggle_config['SEED']
+    print("SEEDS: ",seed)
 
     if len(profile['ORIG_FIELDS']) > 0:
         df_train_orig = pd.read_csv(os.path.join(path, "train.csv"), na_values=NA_VALUES)
+        print("DF TRAIN ORIG: ",df_train_orig)
         df_test_orig = pd.read_csv(os.path.join(path, "test.csv"), na_values=NA_VALUES)
+        print("DF TEST ORIG: ",df_test_orig)
 
     for source in profile['SOURCES']:
         print("Processing: {}".format(source))
@@ -67,8 +75,8 @@ def perform_join(profile_name):
             df_train_joined[col_name] = df_train[name]
             df_test_joined[col_name] = df_test[name]
 
-    # Eliminate any missing values
-    print("Missing")
+    # Eliminate any missing values (trying to take median of a string is the problem, TODO: delete or onehotencode columns from dataset)
+    print("Eliminate any missing values")
     for name in data_columns:
         med = df_train_joined[name].median()
         df_train_joined[name] = df_train_joined[name].fillna(med)

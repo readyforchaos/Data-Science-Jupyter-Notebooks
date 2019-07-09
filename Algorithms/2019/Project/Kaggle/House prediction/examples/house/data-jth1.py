@@ -9,7 +9,7 @@ import numpy as np
 import config
 import jhkaggle
 import jhkaggle.util
-from jhkaggle.util import PassThru
+from jhkaggle.util import PassThru, OneHot
 
 encoding = 'utf-8'
 global_target = 0
@@ -17,7 +17,9 @@ global_target = 0
 # Columns simply passed as is
 pass_columns = ['var_'+str(x) for x in range(0,200)]
 
-columns = [PassThru(pass_columns)]
+columns = [
+    PassThru(pass_columns)
+]
 
 gen = jhkaggle.util.GenerateDataFile("jth-1", columns)
 #gen.max_lines = 10000

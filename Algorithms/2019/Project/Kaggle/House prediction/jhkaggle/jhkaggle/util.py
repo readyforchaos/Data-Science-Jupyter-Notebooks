@@ -478,23 +478,29 @@ class GenerateDataFile:
     def process(self, task, ifile, ofile):
         global global_target
         target_name = jhkaggle.jhkaggle_config['TARGET_NAME']
+        print("Target name (column): ", target_name)
         fit_type = jhkaggle.jhkaggle_config['FIT_TYPE']
+        print("Fit type: ",fit_type)
         print("Process: {}".format(task))
 
         header_idx = {key: value for (value, key) in enumerate(next(ifile))}
-
+        print("header_idx: ",header_idx)
         i = 0
         for row in tqdm(ifile):
+            print(row)
             id = row[0]
+            print("ID: ", id)
 
             if target_name in header_idx:
                 target = row[header_idx[target_name]]
+                print("target (column/label) content for row:",target)
             else:
                 target = None
 
             values = []
             for col in self.columns:
                 values += col.process(header_idx,row)
+                print("Values: ",values)
 
             row2 = [id]
             if target is not None:
@@ -537,7 +543,10 @@ class GenerateDataFile:
         encoding = jhkaggle.jhkaggle_config['ENCODING']
 
         filename_read_train = os.path.join(path, "train.csv")
+        print("Filename full path train:", filename_read_train)
         filename_read_test = os.path.join(path, "test.csv")
+        print("Filename full path test:", filename_read_test)
+        
 
         filename_write_train = os.path.join(path, "data-{}-train.csv".format(self.name))
         filename_write_test = os.path.join(path, "data-{}-test.csv".format(self.name))
@@ -614,12 +623,16 @@ class OneHot:
 
 class PassThru:
     def __init__(self, col_names):
+        print("PRINTING COLUUUUUUUUUUUUUUMNS: ",col_names)
         self.name = col_names
 
     def process(self, header_idx, row):
+        print('PROCESS header_idx:',header_idx)
+        print('PROCESS row:',row)
         result = []
-        for n in self.name:
-            result.append(row[header_idx[n]])
+        for z in header_idx:
+            print("Working on...: ",row[header_idx[z]])
+            result.append(row[header_idx[z]])
         return result
 
 class CatMeanTarget:
