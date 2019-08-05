@@ -76,11 +76,11 @@ def perform_join(profile_name):
             df_test_joined[col_name] = df_test[name]
 
     # Eliminate any missing values (trying to take median of a string is the problem, TODO: delete or onehotencode columns from dataset)
-    print("Eliminate any missing values")
-    for name in data_columns:
-        med = df_train_joined[name].median()
-        df_train_joined[name] = df_train_joined[name].fillna(med)
-        df_test_joined[name] = df_test_joined[name].fillna(med)
+    print("Eliminate any missing values NOT ANYMORE!")
+    #for name in data_columns:
+        #med = df_train_joined[name].median()
+        #df_train_joined[name] = df_train_joined[name].fillna(med)
+        #df_test_joined[name] = df_test_joined[name].fillna(med)
 
     # Add in any requested orig fields
     print("Orig fields")

@@ -260,6 +260,7 @@ class TrainModel:
         for i in range(len(self.x_train.dtypes)):
             dt = self.x_train.dtypes[i]
             name = self.x_train.columns[i]
+            print("DT: ", dt, "NAME: ",name)
 
             if dt not in [np.float64, np.float32, np.int32, np.int64]:
                 print("Bad type: {}:{}".format(name,name.dtype))
